@@ -10,7 +10,7 @@ export const images = [
   { id: 9,  image: 'Billie_Eilish_qvx0sd',          name: 'billie eilish' },
   { id: 10, image: 'The_Weeknd_ja6z6c',             name: 'the weeknd' },
   { id: 11, image: 'Hermione_Granger_q8t4is',       name: 'hermione granger' },
-  { id: 12, image: 'Jack_Sparrow_new_zdacfy',       name: 'jack sparrow' },
+  { id: 12, image: 'Jack_Sparrow_klxgmq',           name: 'jack sparrow' },
   { id: 13, image: 'Harley_Quinn_iypnn6',           name: 'harley quinn' },
   { id: 14, image: 'Breaking_Bad_hyqry4',           name: 'breaking bad' },
   { id: 15, image: 'Layne_Staley_envuae',           name: 'layne staley' },
