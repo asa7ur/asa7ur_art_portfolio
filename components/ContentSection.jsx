@@ -75,8 +75,11 @@ const ContentSection = ({ onShowOverlay }) => {
             aria-label='View collection'
           >
             <span className='absolute inset-0 bg-black scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-in-out' />
-            <span className='relative z-10 group-hover:text-white transition-colors duration-300'>COLLECTION</span>
-            <span className='relative z-10 group-hover:text-white transition-colors duration-300 collection-arrow'>↗</span>
+            <span className='relative z-10 group-hover:text-white transition-colors duration-300 flex items-center gap-3'>
+              <span className='collection-arrow'>↑</span>
+              COLLECTION
+              <span className='collection-arrow'>↑</span>
+            </span>
           </button>
         </div>
 
@@ -87,33 +90,38 @@ const ContentSection = ({ onShowOverlay }) => {
           {/* COLLECTION — dominant black CTA */}
           <button
             onClick={onShowOverlay}
-            className='group relative overflow-hidden bg-black w-full px-6 py-7 tracking-[0.28em] text-lg cursor-pointer font-[inherit] flex items-center justify-between text-white'
+            className='group relative overflow-hidden bg-black w-full px-8 py-8 cursor-pointer font-[inherit] flex items-center gap-5 text-white'
             aria-label='View collection'
           >
             <span className='absolute inset-0 bg-white scale-x-0 group-active:scale-x-100 origin-left transition-transform duration-500 ease-in-out' />
-            <span className='relative z-10 group-active:text-black transition-colors duration-300'>COLLECTION</span>
-            <span className='relative z-10 group-active:text-black transition-colors duration-300 collection-arrow'>↗</span>
+            <span className='relative z-10 flex-1' />
+            <span className='relative z-10 tracking-[0.4em] text-sm flex items-center gap-4 transition-colors duration-300 group-active:text-black'>
+              <span className='collection-arrow'>↑</span>
+              COLLECTION
+              <span className='collection-arrow'>↑</span>
+            </span>
+            <span className='relative z-10 flex-1' />
           </button>
 
           {/* /96 ASATRYAN + socials */}
-          <div className='flex items-center justify-between px-6 py-4'>
-            <span className='text-sm tracking-[0.1em] text-neutral-400'>/96 ASATRYAN</span>
-            <div className='flex gap-5 items-center text-neutral-400'>
-              <a
-                href='https://www.etsy.com/shop/ASA7URSHOP'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <FaShoppingCart className='text-sm' />
-              </a>
-              <a
-                href='https://www.instagram.com/byasa7ur/'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <FaInstagram className='text-sm' />
-              </a>
-            </div>
+          <div className='flex items-center justify-between px-6 py-5'>
+            <a
+              href='https://www.etsy.com/shop/ASA7URSHOP'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex items-center justify-center w-11 h-11 border border-neutral-200 text-neutral-500 transition-colors active:bg-neutral-100'
+            >
+              <FaShoppingCart className='text-sm' />
+            </a>
+            <span className='text-[0.65rem] tracking-[0.2em] text-neutral-400'>/96 ASATRYAN</span>
+            <a
+              href='https://www.instagram.com/byasa7ur/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex items-center justify-center w-11 h-11 border border-neutral-200 text-neutral-500 transition-colors active:bg-neutral-100'
+            >
+              <FaInstagram className='text-sm' />
+            </a>
           </div>
 
         </div>

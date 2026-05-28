@@ -84,59 +84,60 @@ const ProductsSection = ({ isVisible, onClose }) => {
   return (
     <div
       className={`fixed top-0 left-0 w-full h-full bg-black flex flex-col text-white z-[999] transition-transform duration-500 ease-in-out ${
-        isVisible ? 'translate-y-0' : 'translate-y-full'
+        isVisible ? 'translate-y-0 pointer-events-auto' : 'translate-y-[100vh] pointer-events-none'
       }`}
     >
       {/* ── Header ── */}
       <div className='flex-shrink-0 border-b border-white/10'>
 
-        {/* Row 1: brand + [desktop search] + close */}
-        <div className='flex items-center justify-between px-5 md:px-8 py-4 md:py-5'>
+        {/* Desktop: brand + search + close */}
+        <div className='hidden md:flex items-center justify-between px-8 py-5'>
           <span className='text-xs tracking-[0.5em] text-white/50 select-none'>ASA7UR</span>
-
-          {/* Search — desktop only inline */}
-          <div className='hidden md:flex items-center gap-3 border-b border-white/30 pb-2 w-80'>
+          <div className='flex items-center gap-3 border-b border-white/30 pb-2 w-80'>
             <SearchIcon />
             <input
               type='text'
               placeholder='SEARCH'
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className='bg-transparent text-white text-xs tracking-[0.3em] placeholder:text-white/35 outline-none w-full font-[inherit]'
+              className='bg-transparent text-white text-sm tracking-[0.2em] placeholder:text-white/35 outline-none w-full font-[inherit]'
             />
             {search && (
               <button onClick={() => setSearch('')} className='text-white/35 hover:text-white/70 transition-colors cursor-pointer'>
-                <FaTimes className='text-xs' />
+                <FaTimes className='text-sm' />
               </button>
             )}
           </div>
-
-          {/* Close */}
           <button onClick={onClose} aria-label='Close collection' className='group flex items-center gap-3 cursor-pointer'>
-            <span className='hidden md:inline text-xs tracking-[0.4em] text-white/50 group-hover:text-white transition-colors duration-300'>
-              CLOSE
-            </span>
+            <span className='text-xs tracking-[0.4em] text-white/50 group-hover:text-white transition-colors duration-300'>CLOSE</span>
             <span className='flex items-center justify-center w-8 h-8 border border-white/25 text-white/50 group-hover:border-white group-hover:text-white transition-all duration-300'>
               <FaTimes className='text-xs' />
             </span>
           </button>
         </div>
 
-        {/* Row 2: search — mobile only, full width */}
-        <div className='md:hidden flex items-center gap-3 border-t border-white/10 px-5 py-3'>
+        {/* Mobile: search + close in one row */}
+        <div className='md:hidden flex items-center gap-3 px-5 py-4'>
           <SearchIcon />
           <input
             type='text'
             placeholder='SEARCH'
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className='bg-transparent text-white text-xs tracking-[0.3em] placeholder:text-white/35 outline-none w-full font-[inherit]'
+            className='bg-transparent text-white text-sm tracking-[0.2em] placeholder:text-white/35 outline-none flex-1 font-[inherit]'
           />
           {search && (
-            <button onClick={() => setSearch('')} className='text-white/35 transition-colors cursor-pointer'>
-              <FaTimes className='text-xs' />
+            <button onClick={() => setSearch('')} className='text-white/35 transition-colors cursor-pointer flex-shrink-0'>
+              <FaTimes className='text-sm' />
             </button>
           )}
+          <button
+            onClick={onClose}
+            aria-label='Close collection'
+            className='flex items-center justify-center w-9 h-9 border border-white/25 text-white/50 flex-shrink-0'
+          >
+            <FaTimes className='text-sm' />
+          </button>
         </div>
 
       </div>
@@ -144,7 +145,7 @@ const ProductsSection = ({ isVisible, onClose }) => {
       {/* Piece count */}
       {!loading && !error && (
         <div className='px-5 md:px-8 py-3 border-b border-white/5 flex-shrink-0'>
-          <span className='text-[0.65rem] tracking-[0.4em] text-white/35'>
+          <span className='text-sm tracking-[0.3em] text-white/35'>
             {filteredImages.length} {filteredImages.length === 1 ? 'PIECE' : 'PIECES'}
           </span>
         </div>
@@ -155,24 +156,24 @@ const ProductsSection = ({ isVisible, onClose }) => {
 
         {loading && (
           <div className='flex items-center justify-center h-full'>
-            <span className='text-xs tracking-[0.5em] text-white/40'>LOADING...</span>
+            <span className='text-sm tracking-[0.4em] text-white/40'>LOADING...</span>
           </div>
         )}
 
         {error && (
           <div className='flex items-center justify-center h-full'>
-            <span className='text-xs tracking-[0.3em] text-red-400/70'>{error.toUpperCase()}</span>
+            <span className='text-sm tracking-[0.25em] text-red-400/70'>{error.toUpperCase()}</span>
           </div>
         )}
 
         {!loading && !error && filteredImages.length === 0 && images.length > 0 && (
           <div className='flex flex-col items-center justify-center h-full gap-4'>
-            <span className='text-xs tracking-[0.4em] text-white/40'>
+            <span className='text-sm tracking-[0.3em] text-white/40'>
               NO RESULTS FOR &ldquo;{search.toUpperCase()}&rdquo;
             </span>
             <button
               onClick={() => setSearch('')}
-              className='text-[0.65rem] tracking-[0.35em] text-white/30 hover:text-white/60 transition-colors duration-300 cursor-pointer underline underline-offset-4'
+              className='text-xs tracking-[0.3em] text-white/30 hover:text-white/60 transition-colors duration-300 cursor-pointer underline underline-offset-4'
             >
               CLEAR SEARCH
             </button>
@@ -202,7 +203,7 @@ const ProductsSection = ({ isVisible, onClose }) => {
                       {/* Desktop: hover overlay */}
                       <div className='absolute inset-0 bg-black/65 hidden md:flex flex-col items-center justify-center gap-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
                         {image.name && (
-                          <p className='text-[0.65rem] tracking-[0.3em] text-white/90 px-6 text-center leading-relaxed'>
+                          <p className='text-xs tracking-[0.25em] text-white/90 px-6 text-center leading-relaxed'>
                             {image.name.toUpperCase()}
                           </p>
                         )}
@@ -225,7 +226,7 @@ const ProductsSection = ({ isVisible, onClose }) => {
                       {/* Mobile: always-visible gradient strip at bottom */}
                       <div className='absolute bottom-0 left-0 right-0 md:hidden flex items-end justify-between px-2 pt-8 pb-2 bg-gradient-to-t from-black/80 to-transparent'>
                         {image.name && (
-                          <span className='text-[0.5rem] tracking-[0.15em] text-white/65 truncate mr-2 leading-none'>
+                          <span className='text-[0.65rem] tracking-[0.1em] text-white/65 truncate mr-2 leading-none'>
                             {image.name.toUpperCase()}
                           </span>
                         )}
