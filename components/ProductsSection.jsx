@@ -83,8 +83,8 @@ const ProductsSection = ({ isVisible, onClose }) => {
 
   return (
     <div
-      className={`fixed left-0 w-full h-full bg-black flex flex-col text-white z-[999] transition-[top] duration-500 ease-in-out ${
-        isVisible ? 'top-0' : 'top-full'
+      className={`fixed top-0 left-0 w-full h-full bg-black flex flex-col text-white z-[999] transition-transform duration-500 ease-in-out ${
+        isVisible ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
       {/* ── Header ── */}

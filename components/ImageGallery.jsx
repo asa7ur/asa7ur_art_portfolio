@@ -99,7 +99,7 @@ const ImageGallery = ({ images }) => {
       <div
         ref={galleryRef}
         className='md:hidden w-full overflow-hidden'
-        style={{ height: '55svh' }}
+        style={{ height: '70svh' }}
       >
         <div className='flex flex-col h-full gap-[3px]'>
 
@@ -116,7 +116,7 @@ const ImageGallery = ({ images }) => {
                   animationDelay: `${idx * 70}ms`,
                 }}
               >
-                <CldImage src={img.image} alt={img.name} width={400} height={500} sizes='42vw' className='w-full h-full object-cover' />
+                <CldImage src={img.image} alt={img.name} width={400} height={500} sizes='42vw' className='w-full h-full object-cover' priority={idx < 3} />
               </div>
             ))}
           </div>
@@ -134,7 +134,7 @@ const ImageGallery = ({ images }) => {
                   animationDelay: `${idx * 70}ms`,
                 }}
               >
-                <CldImage src={img.image} alt={img.name} width={400} height={500} sizes='42vw' className='w-full h-full object-cover' />
+                <CldImage src={img.image} alt={img.name} width={400} height={500} sizes='42vw' className='w-full h-full object-cover' priority={idx < 3} />
               </div>
             ))}
           </div>

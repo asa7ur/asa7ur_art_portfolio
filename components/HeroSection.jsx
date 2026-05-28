@@ -16,7 +16,7 @@ const HeroSection = () => {
     <section className='flex flex-col md:flex-row relative'>
 
       {/* Title */}
-      <div className='flex w-full md:w-[65%] h-[45svh] md:h-auto items-center justify-center'>
+      <div className='flex w-full md:w-[65%] h-[30svh] md:h-auto items-center justify-center'>
         <h1 className='text-[3.8rem] md:text-[7rem] font-black tracking-wider'>ASA7UR</h1>
       </div>
 
