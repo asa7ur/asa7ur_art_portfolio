@@ -23,9 +23,9 @@ const ImageGallery = ({ images }) => {
     return acc
   }, [])
 
-  // Mobile: 2 rows of 12
-  const row1 = images.slice(0, 12)
-  const row2 = images.slice(12, 24)
+  // Mobile: 2 rows of 6
+  const row1 = images.slice(0, 6)
+  const row2 = images.slice(6, 12)
 
   useGSAP(() => {
     if (window.innerWidth >= 768) return

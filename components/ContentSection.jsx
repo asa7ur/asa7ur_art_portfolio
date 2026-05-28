@@ -35,6 +35,7 @@ const ContentSection = ({ onShowOverlay }) => {
             width={900}
             height={1200}
             sizes='(max-width: 768px) 100vw, 65vw'
+            priority
             className='w-full h-full object-cover object-top'
           />
         </div>
@@ -57,6 +58,7 @@ const ContentSection = ({ onShowOverlay }) => {
             width={600}
             height={900}
             sizes='(max-width: 768px) 100vw, 35vw'
+            priority
             className='w-full h-full object-cover'
           />
         </div>
